@@ -752,18 +752,3 @@ button {
     align-items: flex-start;
   }
 }
-#home,
-.hero,
-.hero-section {
-    min-height: 100vh;
-    padding-top: 120px;
-    display: flex;
-    align-items: center;
-}
-
-.hero *,
-#home * {
-    color: #111827 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
