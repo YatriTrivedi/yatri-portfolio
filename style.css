@@ -467,8 +467,14 @@ button {
 }
 
 .portfolio-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   padding: 0;
+}
+
+.portfolio-card:hover .portfolio-image-wrap img {
+  transform: scale(1.08);
 }
 
 .portfolio-preview {
@@ -477,14 +483,53 @@ button {
   border: 0;
   background: transparent;
   cursor: pointer;
+  text-align: left;
 }
 
-.portfolio-placeholder {
-  min-height: 220px;
+.portfolio-image-wrap {
+  position: relative;
+  min-height: 245px;
+  display: block;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.portfolio-image-wrap img {
+  width: 100%;
+  height: 245px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.image-placeholder {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
-  font-size: 3rem;
-  color: var(--white);
+  padding: 24px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(7, 19, 38, 0.08);
+}
+
+.image-placeholder i {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 2.1rem;
+}
+
+.portfolio-image-wrap img:not([src=""]) + .image-placeholder {
+  opacity: 0;
+}
+
+.portfolio-image-wrap.image-missing img {
+  display: none;
+}
+
+.portfolio-image-wrap.image-missing .image-placeholder {
+  opacity: 1;
 }
 
 .gradient-social { background: linear-gradient(135deg, #6e4cf7, #57b7ff); }
@@ -496,6 +541,9 @@ button {
 .gradient-branding { background: linear-gradient(135deg, #5f2c82, #49a09d); }
 
 .portfolio-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 24px;
 }
 
@@ -505,7 +553,21 @@ button {
 }
 
 .portfolio-body p {
-  min-height: 72px;
+  margin-bottom: 14px;
+}
+
+.software-used {
+  color: var(--navy-800);
+  font-size: 0.92rem;
+}
+
+.software-used strong {
+  color: var(--text-main);
+}
+
+.portfolio-body .btn {
+  align-self: flex-start;
+  margin-top: auto;
 }
 
 .stars {
@@ -667,6 +729,25 @@ button {
   font-size: 4rem;
   color: var(--white);
   background: linear-gradient(135deg, var(--purple-700), var(--blue-400));
+}
+
+.lightbox-visual img {
+  width: 100%;
+  height: min(430px, 54vh);
+  object-fit: cover;
+}
+
+.lightbox-visual.image-missing {
+  padding: 42px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.lightbox-visual.image-missing i {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 3rem;
 }
 
 .lightbox-content {

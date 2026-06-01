@@ -363,43 +363,61 @@
         <div class="container">
           <div class="section-heading text-center reveal">
             <span class="eyebrow">Portfolio Gallery</span>
-            <h2>Selected categories of creative and digital work</h2>
+            <h2>Creative projects ready for your real work samples</h2>
             <p>
-              Browse projects by category and preview concept cards with a simple lightbox experience.
+              Replace each placeholder image and project detail with your final social media,
+              logo, branding, website, mobile app, and UI/UX work.
             </p>
           </div>
 
           <div class="filter-toolbar reveal">
             <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="social">Social Media Posts</button>
-            <button class="filter-btn" data-filter="logo">Logo Design</button>
+            <button class="filter-btn" data-filter="social">Social Media</button>
+            <button class="filter-btn" data-filter="logo">Logos</button>
             <button class="filter-btn" data-filter="business">Business Cards</button>
-            <button class="filter-btn" data-filter="web">Website UI</button>
-            <button class="filter-btn" data-filter="mobile">Mobile App UI</button>
-            <button class="filter-btn" data-filter="banner">Banner Design</button>
-            <button class="filter-btn" data-filter="branding">Branding Projects</button>
+            <button class="filter-btn" data-filter="banner">Banners</button>
+            <button class="filter-btn" data-filter="web">Websites</button>
+            <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+            <button class="filter-btn" data-filter="ux">UI/UX Case Studies</button>
           </div>
 
+          <!--
+            Portfolio edit guide:
+            1. Put your real images in the images folder with these names:
+               project1.jpg, project2.jpg, project3.jpg ... project12.jpg.
+            2. To change project text, edit the project title, category label,
+               description, software text, and matching data-* attributes below.
+            3. To add a new card, copy one .portfolio-item block and update its
+               image path, category, title, description, and software.
+          -->
           <div class="row g-4 portfolio-grid">
             <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="social">
-              <article class="glass-card portfolio-card">
+              <article class="glass-card portfolio-card" data-image="images/project1.jpg">
                 <button
                   class="portfolio-preview"
-                  data-title="Social Media Post Design"
+                  data-title="Social Media Campaign Post"
                   data-category="Social Media Posts"
-                  data-description="Modern promotional creatives designed for campaigns, launches, and social engagement."
+                  data-description="A polished social media creative for promotions, product highlights, and audience engagement."
+                  data-software="Canva, Adobe Photoshop"
+                  data-image="images/project1.jpg"
                 >
-                  <span class="portfolio-placeholder gradient-social"><i class="fa-solid fa-photo-film"></i></span>
+                  <span class="portfolio-image-wrap gradient-social">
+                    <img src="images/project1.jpg" alt="Social Media Campaign Post">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project1.jpg</span>
+                  </span>
                 </button>
                 <div class="portfolio-body">
                   <span class="portfolio-label">Social Media Posts</span>
-                  <h3>Campaign Creative Set</h3>
-                  <p>Professional social visuals designed for digital marketing and product storytelling.</p>
+                  <h3>Social Media Campaign Post</h3>
+                  <p>A polished social media creative for promotions, product highlights, and audience engagement.</p>
+                  <p class="software-used"><strong>Software:</strong> Canva, Adobe Photoshop</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
-                    data-title="Social Media Post Design"
+                    data-title="Social Media Campaign Post"
                     data-category="Social Media Posts"
-                    data-description="Modern promotional creatives designed for campaigns, launches, and social engagement."
+                    data-description="A polished social media creative for promotions, product highlights, and audience engagement."
+                    data-software="Canva, Adobe Photoshop"
+                    data-image="images/project1.jpg"
                   >
                     View Project
                   </button>
@@ -408,24 +426,32 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="logo">
-              <article class="glass-card portfolio-card">
+              <article class="glass-card portfolio-card" data-image="images/project2.jpg">
                 <button
                   class="portfolio-preview"
-                  data-title="Logo Design"
+                  data-title="Modern Logo Concept"
                   data-category="Logo Design"
-                  data-description="Identity-focused logo concepts crafted for clarity, memorability, and brand trust."
+                  data-description="A clean logo concept created for strong brand recall, flexible use, and professional identity."
+                  data-software="Adobe Photoshop, Figma"
+                  data-image="images/project2.jpg"
                 >
-                  <span class="portfolio-placeholder gradient-logo"><i class="fa-solid fa-draw-polygon"></i></span>
+                  <span class="portfolio-image-wrap gradient-logo">
+                    <img src="images/project2.jpg" alt="Modern Logo Concept">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project2.jpg</span>
+                  </span>
                 </button>
                 <div class="portfolio-body">
                   <span class="portfolio-label">Logo Design</span>
-                  <h3>Identity Mark Collection</h3>
-                  <p>Logo directions that combine simplicity, structure, and distinct visual personality.</p>
+                  <h3>Modern Logo Concept</h3>
+                  <p>A clean logo concept created for strong brand recall, flexible use, and professional identity.</p>
+                  <p class="software-used"><strong>Software:</strong> Adobe Photoshop, Figma</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
-                    data-title="Logo Design"
+                    data-title="Modern Logo Concept"
                     data-category="Logo Design"
-                    data-description="Identity-focused logo concepts crafted for clarity, memorability, and brand trust."
+                    data-description="A clean logo concept created for strong brand recall, flexible use, and professional identity."
+                    data-software="Adobe Photoshop, Figma"
+                    data-image="images/project2.jpg"
                   >
                     View Project
                   </button>
@@ -434,24 +460,32 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-2" data-category="business">
-              <article class="glass-card portfolio-card">
+              <article class="glass-card portfolio-card" data-image="images/project3.jpg">
                 <button
                   class="portfolio-preview"
-                  data-title="Business Card Design"
+                  data-title="Professional Business Card"
                   data-category="Business Card Design"
-                  data-description="Premium, print-ready business card systems tailored for a polished first impression."
+                  data-description="A print-ready business card layout with balanced typography, spacing, and brand presentation."
+                  data-software="Canva, Adobe Photoshop"
+                  data-image="images/project3.jpg"
                 >
-                  <span class="portfolio-placeholder gradient-business"><i class="fa-solid fa-address-card"></i></span>
+                  <span class="portfolio-image-wrap gradient-business">
+                    <img src="images/project3.jpg" alt="Professional Business Card">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project3.jpg</span>
+                  </span>
                 </button>
                 <div class="portfolio-body">
                   <span class="portfolio-label">Business Card Design</span>
-                  <h3>Corporate Card System</h3>
-                  <p>Balanced layouts and professional typography for business identity touchpoints.</p>
+                  <h3>Professional Business Card</h3>
+                  <p>A print-ready business card layout with balanced typography, spacing, and brand presentation.</p>
+                  <p class="software-used"><strong>Software:</strong> Canva, Adobe Photoshop</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
-                    data-title="Business Card Design"
+                    data-title="Professional Business Card"
                     data-category="Business Card Design"
-                    data-description="Premium, print-ready business card systems tailored for a polished first impression."
+                    data-description="A print-ready business card layout with balanced typography, spacing, and brand presentation."
+                    data-software="Canva, Adobe Photoshop"
+                    data-image="images/project3.jpg"
                   >
                     View Project
                   </button>
@@ -459,77 +493,33 @@
               </article>
             </div>
 
-            <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="web">
-              <article class="glass-card portfolio-card">
+            <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="banner">
+              <article class="glass-card portfolio-card" data-image="images/project4.jpg">
                 <button
                   class="portfolio-preview"
-                  data-title="Website UI Design"
-                  data-category="Website UI Design"
-                  data-description="Responsive landing page and dashboard concepts designed for clarity and conversion."
-                >
-                  <span class="portfolio-placeholder gradient-web"><i class="fa-solid fa-window-maximize"></i></span>
-                </button>
-                <div class="portfolio-body">
-                  <span class="portfolio-label">Website UI Design</span>
-                  <h3>Landing Page Experience</h3>
-                  <p>Modern web UI built around structure, visual hierarchy, and responsive composition.</p>
-                  <button
-                    class="btn btn-outline-primary btn-sm lightbox-trigger"
-                    data-title="Website UI Design"
-                    data-category="Website UI Design"
-                    data-description="Responsive landing page and dashboard concepts designed for clarity and conversion."
-                  >
-                    View Project
-                  </button>
-                </div>
-              </article>
-            </div>
-
-            <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="mobile">
-              <article class="glass-card portfolio-card">
-                <button
-                  class="portfolio-preview"
-                  data-title="Mobile App UI Design"
-                  data-category="Mobile App UI Design"
-                  data-description="User-first mobile screens with smooth flows, intuitive layouts, and modern visual rhythm."
-                >
-                  <span class="portfolio-placeholder gradient-mobile"><i class="fa-solid fa-mobile-screen-button"></i></span>
-                </button>
-                <div class="portfolio-body">
-                  <span class="portfolio-label">Mobile App UI Design</span>
-                  <h3>App Interface Concept</h3>
-                  <p>Mobile UI design focused on consistency, usability, and polished interaction patterns.</p>
-                  <button
-                    class="btn btn-outline-primary btn-sm lightbox-trigger"
-                    data-title="Mobile App UI Design"
-                    data-category="Mobile App UI Design"
-                    data-description="User-first mobile screens with smooth flows, intuitive layouts, and modern visual rhythm."
-                  >
-                    View Project
-                  </button>
-                </div>
-              </article>
-            </div>
-
-            <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-2" data-category="banner">
-              <article class="glass-card portfolio-card">
-                <button
-                  class="portfolio-preview"
-                  data-title="Banner Design"
+                  data-title="Promotional Banner Design"
                   data-category="Banner Design"
-                  data-description="Promotion banners designed for strong visibility, readability, and campaign impact."
+                  data-description="A bold promotional banner designed for campaign visibility, readable messaging, and quick impact."
+                  data-software="Adobe Photoshop, Canva"
+                  data-image="images/project4.jpg"
                 >
-                  <span class="portfolio-placeholder gradient-banner"><i class="fa-solid fa-images"></i></span>
+                  <span class="portfolio-image-wrap gradient-banner">
+                    <img src="images/project4.jpg" alt="Promotional Banner Design">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project4.jpg</span>
+                  </span>
                 </button>
                 <div class="portfolio-body">
                   <span class="portfolio-label">Banner Design</span>
-                  <h3>Campaign Banner Series</h3>
-                  <p>Banner assets created for offers, announcements, and visual brand promotion.</p>
+                  <h3>Promotional Banner Design</h3>
+                  <p>A bold promotional banner designed for campaign visibility, readable messaging, and quick impact.</p>
+                  <p class="software-used"><strong>Software:</strong> Adobe Photoshop, Canva</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
-                    data-title="Banner Design"
+                    data-title="Promotional Banner Design"
                     data-category="Banner Design"
-                    data-description="Promotion banners designed for strong visibility, readability, and campaign impact."
+                    data-description="A bold promotional banner designed for campaign visibility, readable messaging, and quick impact."
+                    data-software="Adobe Photoshop, Canva"
+                    data-image="images/project4.jpg"
                   >
                     View Project
                   </button>
@@ -537,25 +527,271 @@
               </article>
             </div>
 
-            <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="branding">
-              <article class="glass-card portfolio-card">
+            <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="web">
+              <article class="glass-card portfolio-card" data-image="images/project5.jpg">
                 <button
                   class="portfolio-preview"
-                  data-title="Branding Projects"
-                  data-category="Brand Identity Design"
-                  data-description="Brand systems built through cohesive color, typography, logo, and collateral direction."
+                  data-title="Website Homepage Design"
+                  data-category="Website Design"
+                  data-description="A responsive website homepage concept with clear layout, visual hierarchy, and modern styling."
+                  data-software="Figma, HTML, CSS, Bootstrap"
+                  data-image="images/project5.jpg"
                 >
-                  <span class="portfolio-placeholder gradient-branding"><i class="fa-solid fa-swatchbook"></i></span>
+                  <span class="portfolio-image-wrap gradient-web">
+                    <img src="images/project5.jpg" alt="Website Homepage Design">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project5.jpg</span>
+                  </span>
                 </button>
                 <div class="portfolio-body">
-                  <span class="portfolio-label">Branding Projects</span>
-                  <h3>Visual Identity Toolkit</h3>
-                  <p>Integrated identity assets developed for consistency across digital and print touchpoints.</p>
+                  <span class="portfolio-label">Website Design</span>
+                  <h3>Website Homepage Design</h3>
+                  <p>A responsive website homepage concept with clear layout, visual hierarchy, and modern styling.</p>
+                  <p class="software-used"><strong>Software:</strong> Figma, HTML, CSS, Bootstrap</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
-                    data-title="Branding Projects"
-                    data-category="Brand Identity Design"
-                    data-description="Brand systems built through cohesive color, typography, logo, and collateral direction."
+                    data-title="Website Homepage Design"
+                    data-category="Website Design"
+                    data-description="A responsive website homepage concept with clear layout, visual hierarchy, and modern styling."
+                    data-software="Figma, HTML, CSS, Bootstrap"
+                    data-image="images/project5.jpg"
+                  >
+                    View Project
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-2" data-category="mobile">
+              <article class="glass-card portfolio-card" data-image="images/project6.jpg">
+                <button
+                  class="portfolio-preview"
+                  data-title="Mobile App Screen Design"
+                  data-category="Mobile App Design"
+                  data-description="A clean mobile app screen focused on usability, readable content, and smooth user flow."
+                  data-software="Figma, UI/UX Design"
+                  data-image="images/project6.jpg"
+                >
+                  <span class="portfolio-image-wrap gradient-mobile">
+                    <img src="images/project6.jpg" alt="Mobile App Screen Design">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project6.jpg</span>
+                  </span>
+                </button>
+                <div class="portfolio-body">
+                  <span class="portfolio-label">Mobile App Design</span>
+                  <h3>Mobile App Screen Design</h3>
+                  <p>A clean mobile app screen focused on usability, readable content, and smooth user flow.</p>
+                  <p class="software-used"><strong>Software:</strong> Figma, UI/UX Design</p>
+                  <button
+                    class="btn btn-outline-primary btn-sm lightbox-trigger"
+                    data-title="Mobile App Screen Design"
+                    data-category="Mobile App Design"
+                    data-description="A clean mobile app screen focused on usability, readable content, and smooth user flow."
+                    data-software="Figma, UI/UX Design"
+                    data-image="images/project6.jpg"
+                  >
+                    View Project
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="ux">
+              <article class="glass-card portfolio-card" data-image="images/project7.jpg">
+                <button
+                  class="portfolio-preview"
+                  data-title="UI/UX Case Study Layout"
+                  data-category="UI/UX Case Studies"
+                  data-description="A case study layout presenting research, wireframes, design decisions, and final UI screens."
+                  data-software="Figma, UI/UX Design"
+                  data-image="images/project7.jpg"
+                >
+                  <span class="portfolio-image-wrap gradient-branding">
+                    <img src="images/project7.jpg" alt="UI/UX Case Study Layout">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project7.jpg</span>
+                  </span>
+                </button>
+                <div class="portfolio-body">
+                  <span class="portfolio-label">UI/UX Case Studies</span>
+                  <h3>UI/UX Case Study Layout</h3>
+                  <p>A case study layout presenting research, wireframes, design decisions, and final UI screens.</p>
+                  <p class="software-used"><strong>Software:</strong> Figma, UI/UX Design</p>
+                  <button
+                    class="btn btn-outline-primary btn-sm lightbox-trigger"
+                    data-title="UI/UX Case Study Layout"
+                    data-category="UI/UX Case Studies"
+                    data-description="A case study layout presenting research, wireframes, design decisions, and final UI screens."
+                    data-software="Figma, UI/UX Design"
+                    data-image="images/project7.jpg"
+                  >
+                    View Project
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="social">
+              <article class="glass-card portfolio-card" data-image="images/project8.jpg">
+                <button
+                  class="portfolio-preview"
+                  data-title="Festival Social Media Creative"
+                  data-category="Social Media Posts"
+                  data-description="A festive social post layout designed with bright visuals, clear copy placement, and brand consistency."
+                  data-software="Canva, Adobe Photoshop"
+                  data-image="images/project8.jpg"
+                >
+                  <span class="portfolio-image-wrap gradient-social">
+                    <img src="images/project8.jpg" alt="Festival Social Media Creative">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project8.jpg</span>
+                  </span>
+                </button>
+                <div class="portfolio-body">
+                  <span class="portfolio-label">Social Media Posts</span>
+                  <h3>Festival Social Media Creative</h3>
+                  <p>A festive social post layout designed with bright visuals, clear copy placement, and brand consistency.</p>
+                  <p class="software-used"><strong>Software:</strong> Canva, Adobe Photoshop</p>
+                  <button
+                    class="btn btn-outline-primary btn-sm lightbox-trigger"
+                    data-title="Festival Social Media Creative"
+                    data-category="Social Media Posts"
+                    data-description="A festive social post layout designed with bright visuals, clear copy placement, and brand consistency."
+                    data-software="Canva, Adobe Photoshop"
+                    data-image="images/project8.jpg"
+                  >
+                    View Project
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-2" data-category="logo">
+              <article class="glass-card portfolio-card" data-image="images/project9.jpg">
+                <button
+                  class="portfolio-preview"
+                  data-title="Brand Identity Logo"
+                  data-category="Logo Design"
+                  data-description="A versatile logo direction prepared for digital, print, and social media brand touchpoints."
+                  data-software="Adobe Photoshop, Figma"
+                  data-image="images/project9.jpg"
+                >
+                  <span class="portfolio-image-wrap gradient-logo">
+                    <img src="images/project9.jpg" alt="Brand Identity Logo">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project9.jpg</span>
+                  </span>
+                </button>
+                <div class="portfolio-body">
+                  <span class="portfolio-label">Logo Design</span>
+                  <h3>Brand Identity Logo</h3>
+                  <p>A versatile logo direction prepared for digital, print, and social media brand touchpoints.</p>
+                  <p class="software-used"><strong>Software:</strong> Adobe Photoshop, Figma</p>
+                  <button
+                    class="btn btn-outline-primary btn-sm lightbox-trigger"
+                    data-title="Brand Identity Logo"
+                    data-category="Logo Design"
+                    data-description="A versatile logo direction prepared for digital, print, and social media brand touchpoints."
+                    data-software="Adobe Photoshop, Figma"
+                    data-image="images/project9.jpg"
+                  >
+                    View Project
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="business">
+              <article class="glass-card portfolio-card" data-image="images/project10.jpg">
+                <button
+                  class="portfolio-preview"
+                  data-title="Minimal Business Card"
+                  data-category="Business Card Design"
+                  data-description="A minimal business card concept with clean information hierarchy and professional spacing."
+                  data-software="Canva, Adobe Photoshop"
+                  data-image="images/project10.jpg"
+                >
+                  <span class="portfolio-image-wrap gradient-business">
+                    <img src="images/project10.jpg" alt="Minimal Business Card">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project10.jpg</span>
+                  </span>
+                </button>
+                <div class="portfolio-body">
+                  <span class="portfolio-label">Business Card Design</span>
+                  <h3>Minimal Business Card</h3>
+                  <p>A minimal business card concept with clean information hierarchy and professional spacing.</p>
+                  <p class="software-used"><strong>Software:</strong> Canva, Adobe Photoshop</p>
+                  <button
+                    class="btn btn-outline-primary btn-sm lightbox-trigger"
+                    data-title="Minimal Business Card"
+                    data-category="Business Card Design"
+                    data-description="A minimal business card concept with clean information hierarchy and professional spacing."
+                    data-software="Canva, Adobe Photoshop"
+                    data-image="images/project10.jpg"
+                  >
+                    View Project
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="banner">
+              <article class="glass-card portfolio-card" data-image="images/project11.jpg">
+                <button
+                  class="portfolio-preview"
+                  data-title="Event Banner Creative"
+                  data-category="Banner Design"
+                  data-description="An event banner design built for strong readability, balanced visuals, and professional presentation."
+                  data-software="Adobe Photoshop, Canva"
+                  data-image="images/project11.jpg"
+                >
+                  <span class="portfolio-image-wrap gradient-banner">
+                    <img src="images/project11.jpg" alt="Event Banner Creative">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project11.jpg</span>
+                  </span>
+                </button>
+                <div class="portfolio-body">
+                  <span class="portfolio-label">Banner Design</span>
+                  <h3>Event Banner Creative</h3>
+                  <p>An event banner design built for strong readability, balanced visuals, and professional presentation.</p>
+                  <p class="software-used"><strong>Software:</strong> Adobe Photoshop, Canva</p>
+                  <button
+                    class="btn btn-outline-primary btn-sm lightbox-trigger"
+                    data-title="Event Banner Creative"
+                    data-category="Banner Design"
+                    data-description="An event banner design built for strong readability, balanced visuals, and professional presentation."
+                    data-software="Adobe Photoshop, Canva"
+                    data-image="images/project11.jpg"
+                  >
+                    View Project
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-2" data-category="web">
+              <article class="glass-card portfolio-card" data-image="images/project12.jpg">
+                <button
+                  class="portfolio-preview"
+                  data-title="Responsive Website Section"
+                  data-category="Website Design"
+                  data-description="A responsive web section designed with Bootstrap, structured spacing, and clean frontend execution."
+                  data-software="HTML, CSS, Bootstrap, Angular"
+                  data-image="images/project12.jpg"
+                >
+                  <span class="portfolio-image-wrap gradient-web">
+                    <img src="images/project12.jpg" alt="Responsive Website Section">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project12.jpg</span>
+                  </span>
+                </button>
+                <div class="portfolio-body">
+                  <span class="portfolio-label">Website Design</span>
+                  <h3>Responsive Website Section</h3>
+                  <p>A responsive web section designed with Bootstrap, structured spacing, and clean frontend execution.</p>
+                  <p class="software-used"><strong>Software:</strong> HTML, CSS, Bootstrap, Angular</p>
+                  <button
+                    class="btn btn-outline-primary btn-sm lightbox-trigger"
+                    data-title="Responsive Website Section"
+                    data-category="Website Design"
+                    data-description="A responsive web section designed with Bootstrap, structured spacing, and clean frontend execution."
+                    data-software="HTML, CSS, Bootstrap, Angular"
+                    data-image="images/project12.jpg"
                   >
                     View Project
                   </button>
@@ -654,16 +890,11 @@
               <div class="glass-card contact-info-card h-100">
                 <h3>Contact Details</h3>
                 <ul class="contact-list">
-                  <li><i class="fa-solid fa-envelope"></i><span>your.email@example.com</span></li>
-                  <li><i class="fa-solid fa-phone"></i><span>+91 00000 00000</span></li>
+                  <li><i class="fa-solid fa-user"></i><span>Yatri Trivedi</span></li>
+                  <li><i class="fa-solid fa-briefcase"></i><span>Graphic Designer | UI/UX Designer | Frontend Developer</span></li>
                   <li><i class="fa-solid fa-location-dot"></i><span>Anand, Gujarat, India</span></li>
+                  <li><i class="fa-solid fa-graduation-cap"></i><span>BCA and MCA from SPU University</span></li>
                 </ul>
-                <div class="social-links">
-                  <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                  <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                  <a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-                  <a href="#" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
-                </div>
               </div>
             </div>
             <div class="col-lg-7 reveal reveal-delay-1">
@@ -707,7 +938,7 @@
             <h3>Yatri Trivedi</h3>
             <p>Graphic Designer | UI/UX Designer | Frontend Developer</p>
           </div>
-          <p class="mb-0">&copy; <span id="currentYear"></span> Yatri Trivedi. Built for a premium professional portfolio presence.</p>
+          <p class="mb-0">&copy; 2026 Yatri Trivedi | Graphic Designer | UI/UX Designer</p>
         </div>
       </div>
     </footer>
@@ -726,6 +957,7 @@
         <span id="lightboxCategory" class="portfolio-label"></span>
         <h3 id="lightboxTitle">Project Preview</h3>
         <p id="lightboxDescription"></p>
+        <p id="lightboxSoftware" class="software-used mb-0"></p>
       </div>
     </div>
   </div>

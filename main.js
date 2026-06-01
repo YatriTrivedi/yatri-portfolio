@@ -7,31 +7,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxCategory = document.getElementById("lightboxCategory");
   const lightboxTitle = document.getElementById("lightboxTitle");
   const lightboxDescription = document.getElementById("lightboxDescription");
+  const lightboxSoftware = document.getElementById("lightboxSoftware");
   const lightboxVisual = document.getElementById("lightboxVisual");
   const lightboxTriggers = document.querySelectorAll(".lightbox-trigger, .portfolio-preview");
   const lightboxCloseTargets = document.querySelectorAll("[data-close-lightbox]");
   const contactForm = document.getElementById("contactForm");
   const formMessage = document.getElementById("formMessage");
+  const portfolioImages = document.querySelectorAll(".portfolio-image-wrap img");
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.14
-    }
-  );
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.14
+      }
+    );
 
-  revealElements.forEach((element) => observer.observe(element));
+    revealElements.forEach((element) => observer.observe(element));
+  } else {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+  }
+
+  portfolioImages.forEach((image) => {
+    image.addEventListener("error", () => {
+      image.closest(".portfolio-image-wrap")?.classList.add("image-missing");
+    });
+  });
+
+  function escapeAttribute(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;");
+  }
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -52,11 +72,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = trigger.dataset.title || "Project Preview";
     const category = trigger.dataset.category || "Portfolio";
     const description = trigger.dataset.description || "Creative project preview.";
+    const software = trigger.dataset.software || "Add software used";
+    const imagePath = trigger.dataset.image || "";
 
     lightboxCategory.textContent = category;
     lightboxTitle.textContent = title;
     lightboxDescription.textContent = description;
-    lightboxVisual.innerHTML = '<i class="fa-solid fa-image"></i>';
+    lightboxSoftware.innerHTML = `<strong>Software:</strong> ${software}`;
+    lightboxVisual.classList.remove("image-missing");
+
+    if (imagePath) {
+      lightboxVisual.innerHTML = `<img src="${escapeAttribute(imagePath)}" alt="${escapeAttribute(title)}">`;
+      const lightboxImage = lightboxVisual.querySelector("img");
+
+      lightboxImage.addEventListener("error", () => {
+        lightboxVisual.classList.add("image-missing");
+        lightboxVisual.innerHTML = `<span><i class="fa-solid fa-image"></i>Replace ${escapeAttribute(imagePath)}</span>`;
+      });
+    } else {
+      lightboxVisual.classList.add("image-missing");
+      lightboxVisual.innerHTML = '<span><i class="fa-solid fa-image"></i>Add project image</span>';
+    }
 
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
