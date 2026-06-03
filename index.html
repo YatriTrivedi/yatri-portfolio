@@ -23,9 +23,10 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="is-loading">
   <div class="page-shell">
     <nav class="navbar navbar-expand-xl fixed-top main-navbar" data-bs-theme="dark">
       <div class="container">
@@ -49,8 +50,6 @@
             <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
             <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-            <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
             <li class="nav-item ms-xl-3"><a class="btn btn-primary nav-cta" href="#contact">Let's Talk</a></li>
           </ul>
         </div>
@@ -74,25 +73,10 @@
                   <a href="#portfolio" class="btn btn-primary btn-lg">View My Work</a>
                   <a href="#contact" class="btn btn-outline-dark btn-lg">Contact Me</a>
                 </div>
-                <div class="hero-stats row g-3">
-                  <div class="col-12 col-sm-6 col-md-4">
-                    <div class="info-chip">
-                      <strong>2+</strong>
-                      <span>Years Corporate Experience</span>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4">
-                    <div class="info-chip">
-                      <strong>7+</strong>
-                      <span>Portfolio Categories</span>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="info-chip">
-                      <strong>Anand</strong>
-                      <span>Gujarat, India</span>
-                    </div>
-                  </div>
+                <div class="hero-specialties">
+                  <span>Brand Identity</span>
+                  <span>Social Media Creatives</span>
+                  <span>Website & App UI</span>
                 </div>
               </div>
             </div>
@@ -122,8 +106,8 @@
                     <strong>Figma + Canva</strong>
                   </div>
                   <div class="metric-card">
-                    <span>Education</span>
-                    <strong>BCA &amp; MCA</strong>
+                    <span>Location</span>
+                    <strong>Anand, Gujarat</strong>
                   </div>
                   <div class="metric-card">
                     <span>Frontend</span>
@@ -371,13 +355,12 @@
 
           <div class="filter-toolbar reveal">
             <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="filter-btn" type="button" data-filter="social" aria-pressed="false">Social Media</button>
+            <button class="filter-btn" type="button" data-filter="social" aria-pressed="false">Social Media Posts</button>
             <button class="filter-btn" type="button" data-filter="logo" aria-pressed="false">Logos</button>
-            <button class="filter-btn" type="button" data-filter="business" aria-pressed="false">Business Cards</button>
             <button class="filter-btn" type="button" data-filter="banner" aria-pressed="false">Banners</button>
-            <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Websites</button>
-            <button class="filter-btn" type="button" data-filter="mobile" aria-pressed="false">Mobile Apps</button>
-            <button class="filter-btn" type="button" data-filter="ux" aria-pressed="false">UI/UX Case Studies</button>
+            <button class="filter-btn" type="button" data-filter="business" aria-pressed="false">Business Cards</button>
+            <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Website UI</button>
+            <button class="filter-btn" type="button" data-filter="mobile" aria-pressed="false">Mobile App UI</button>
           </div>
 
           <div class="row g-4 portfolio-grid">
@@ -399,7 +382,6 @@
                 <div class="portfolio-body">
                   <span class="portfolio-label">Social Media Posts</span>
                   <h3>Social Media Campaign Post</h3>
-                  <p>A polished social media creative for promotions, product highlights, and audience engagement.</p>
                   <p class="software-used"><strong>Software:</strong> Canva, Adobe Photoshop</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
@@ -433,7 +415,6 @@
                 <div class="portfolio-body">
                   <span class="portfolio-label">Logo Design</span>
                   <h3>Modern Logo Concept</h3>
-                  <p>A clean logo concept created for strong brand recall, flexible use, and professional identity.</p>
                   <p class="software-used"><strong>Software:</strong> Adobe Photoshop, Figma</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
@@ -467,7 +448,6 @@
                 <div class="portfolio-body">
                   <span class="portfolio-label">Business Card Design</span>
                   <h3>Professional Business Card</h3>
-                  <p>A print-ready business card layout with balanced typography, spacing, and brand presentation.</p>
                   <p class="software-used"><strong>Software:</strong> Canva, Adobe Photoshop</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
@@ -501,7 +481,6 @@
                 <div class="portfolio-body">
                   <span class="portfolio-label">Banner Design</span>
                   <h3>Promotional Banner Design</h3>
-                  <p>A bold promotional banner designed for campaign visibility, readable messaging, and quick impact.</p>
                   <p class="software-used"><strong>Software:</strong> Adobe Photoshop, Canva</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
@@ -522,7 +501,7 @@
                 <button
                   class="portfolio-preview"
                   data-title="Website Homepage Design"
-                  data-category="Website Design"
+                  data-category="Website UI"
                   data-description="A responsive website homepage concept with clear layout, visual hierarchy, and modern styling."
                   data-software="Figma, HTML, CSS, Bootstrap"
                   data-image="images/Web Layout_Edution.jpg"
@@ -533,14 +512,13 @@
                   </span>
                 </button>
                 <div class="portfolio-body">
-                  <span class="portfolio-label">Website Design</span>
+                  <span class="portfolio-label">Website UI</span>
                   <h3>Website Homepage Design</h3>
-                  <p>A responsive website homepage concept with clear layout, visual hierarchy, and modern styling.</p>
                   <p class="software-used"><strong>Software:</strong> Figma, HTML, CSS, Bootstrap</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
                     data-title="Website Homepage Design"
-                    data-category="Website Design"
+                    data-category="Website UI"
                     data-description="A responsive website homepage concept with clear layout, visual hierarchy, and modern styling."
                     data-software="Figma, HTML, CSS, Bootstrap"
                     data-image="images/Web Layout_Edution.jpg"
@@ -556,7 +534,7 @@
                 <button
                   class="portfolio-preview"
                   data-title="Mobile App Screen Design"
-                  data-category="Mobile App Design"
+                  data-category="Mobile App UI"
                   data-description="A clean mobile app screen focused on usability, readable content, and smooth user flow."
                   data-software="Figma, UI/UX Design"
                   data-image="images/CRUZAA/LOGIN.png"
@@ -567,51 +545,16 @@
                   </span>
                 </button>
                 <div class="portfolio-body">
-                  <span class="portfolio-label">Mobile App Design</span>
+                  <span class="portfolio-label">Mobile App UI</span>
                   <h3>Mobile App Screen Design</h3>
-                  <p>A clean mobile app screen focused on usability, readable content, and smooth user flow.</p>
                   <p class="software-used"><strong>Software:</strong> Figma, UI/UX Design</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
                     data-title="Mobile App Screen Design"
-                    data-category="Mobile App Design"
+                    data-category="Mobile App UI"
                     data-description="A clean mobile app screen focused on usability, readable content, and smooth user flow."
                     data-software="Figma, UI/UX Design"
                     data-image="images/CRUZAA/LOGIN.png"
-                  >
-                    View Project
-                  </button>
-                </div>
-              </article>
-            </div>
-
-            <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="ux">
-              <article class="glass-card portfolio-card" data-image="images/Case Study_Course Master.png">
-                <button
-                  class="portfolio-preview"
-                  data-title="UI/UX Case Study Layout"
-                  data-category="UI/UX Case Studies"
-                  data-description="A case study layout presenting research, wireframes, design decisions, and final UI screens."
-                  data-software="Figma, UI/UX Design"
-                  data-image="images/Case Study_Course Master.png"
-                >
-                  <span class="portfolio-image-wrap gradient-branding">
-                    <img src="images/Case Study_Course Master.png" alt="UI/UX Case Study Layout" loading="lazy" decoding="async">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
-                  </span>
-                </button>
-                <div class="portfolio-body">
-                  <span class="portfolio-label">UI/UX Case Studies</span>
-                  <h3>UI/UX Case Study Layout</h3>
-                  <p>A case study layout presenting research, wireframes, design decisions, and final UI screens.</p>
-                  <p class="software-used"><strong>Software:</strong> Figma, UI/UX Design</p>
-                  <button
-                    class="btn btn-outline-primary btn-sm lightbox-trigger"
-                    data-title="UI/UX Case Study Layout"
-                    data-category="UI/UX Case Studies"
-                    data-description="A case study layout presenting research, wireframes, design decisions, and final UI screens."
-                    data-software="Figma, UI/UX Design"
-                    data-image="images/Case Study_Course Master.png"
                   >
                     View Project
                   </button>
@@ -637,7 +580,6 @@
                 <div class="portfolio-body">
                   <span class="portfolio-label">Social Media Posts</span>
                   <h3>Festival Social Media Creative</h3>
-                  <p>A festive social post layout designed with bright visuals, clear copy placement, and brand consistency.</p>
                   <p class="software-used"><strong>Software:</strong> Canva, Adobe Photoshop</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
@@ -671,7 +613,6 @@
                 <div class="portfolio-body">
                   <span class="portfolio-label">Logo Design</span>
                   <h3>Brand Identity Logo</h3>
-                  <p>A versatile logo direction prepared for digital, print, and social media brand touchpoints.</p>
                   <p class="software-used"><strong>Software:</strong> Adobe Photoshop, Figma</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
@@ -705,7 +646,6 @@
                 <div class="portfolio-body">
                   <span class="portfolio-label">Business Card Design</span>
                   <h3>Minimal Business Card</h3>
-                  <p>A minimal business card concept with clean information hierarchy and professional spacing.</p>
                   <p class="software-used"><strong>Software:</strong> Canva, Adobe Photoshop</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
@@ -760,7 +700,7 @@
                 <button
                   class="portfolio-preview"
                   data-title="Responsive Website Section"
-                  data-category="Website Design"
+                  data-category="Website UI"
                   data-description="A responsive web section designed with Bootstrap, structured spacing, and clean frontend execution."
                   data-software="HTML, CSS, Bootstrap, Angular"
                   data-image="images/Login_Page.png"
@@ -771,14 +711,13 @@
                   </span>
                 </button>
                 <div class="portfolio-body">
-                  <span class="portfolio-label">Website Design</span>
+                  <span class="portfolio-label">Website UI</span>
                   <h3>Responsive Website Section</h3>
-                  <p>A responsive web section designed with Bootstrap, structured spacing, and clean frontend execution.</p>
                   <p class="software-used"><strong>Software:</strong> HTML, CSS, Bootstrap, Angular</p>
                   <button
                     class="btn btn-outline-primary btn-sm lightbox-trigger"
                     data-title="Responsive Website Section"
-                    data-category="Website Design"
+                    data-category="Website UI"
                     data-description="A responsive web section designed with Bootstrap, structured spacing, and clean frontend execution."
                     data-software="HTML, CSS, Bootstrap, Angular"
                     data-image="images/Login_Page.png"
@@ -787,80 +726,6 @@
                   </button>
                 </div>
               </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="testimonials" class="section-padding surface-light">
-        <div class="container">
-          <div class="section-heading text-center reveal">
-            <span class="eyebrow">Testimonials</span>
-            <h2>How collaborators describe the experience</h2>
-            <p>
-              Professionalism, clarity, and creative execution are at the center of every design process.
-            </p>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-4 reveal">
-              <div class="glass-card testimonial-card">
-                <div class="stars">5/5</div>
-                <p>
-                  "Yatri brings a rare mix of technical understanding and visual sensibility. Her layouts feel polished and easy to use."
-                </p>
-                <h3>Creative Team Feedback</h3>
-                <span>UI/UX Collaboration Perspective</span>
-              </div>
-            </div>
-            <div class="col-lg-4 reveal reveal-delay-1">
-              <div class="glass-card testimonial-card">
-                <div class="stars">5/5</div>
-                <p>
-                  "Strong attention to detail, brand consistency, and presentation quality. The designs always feel professional and thoughtful."
-                </p>
-                <h3>Project Stakeholder Note</h3>
-                <span>Brand and Design Review</span>
-              </div>
-            </div>
-            <div class="col-lg-4 reveal reveal-delay-2">
-              <div class="glass-card testimonial-card">
-                <div class="stars">5/5</div>
-                <p>
-                  "Her frontend background really shows in the way screens are structured. The final design feels ready for real implementation."
-                </p>
-                <h3>Product Collaboration View</h3>
-                <span>Frontend and UI Workflow</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="education" class="section-padding">
-        <div class="container">
-          <div class="section-heading text-center reveal">
-            <span class="eyebrow">Education</span>
-            <h2>Academic foundation in computer applications</h2>
-            <p>
-              A strong technical base that supports design systems, digital thinking, and frontend understanding.
-            </p>
-          </div>
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-6 col-lg-4 reveal">
-              <div class="glass-card education-card">
-                <i class="fa-solid fa-user-graduate"></i>
-                <h3>Bachelor of Computer Applications</h3>
-                <p>BCA</p>
-                <span>SPU University</span>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4 reveal reveal-delay-1">
-              <div class="glass-card education-card">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h3>Master of Computer Applications</h3>
-                <p>MCA</p>
-                <span>SPU University</span>
-              </div>
             </div>
           </div>
         </div>
@@ -992,6 +857,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

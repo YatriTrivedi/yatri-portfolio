@@ -45,6 +45,15 @@ body {
     radial-gradient(circle at top left, rgba(110, 76, 247, 0.12), transparent 28%),
     radial-gradient(circle at top right, rgba(104, 181, 255, 0.12), transparent 24%),
     linear-gradient(180deg, #f9fbff 0%, #ffffff 34%, #f6f7ff 100%);
+  transition: opacity 0.45s ease;
+}
+
+body.is-loading {
+  opacity: 0;
+}
+
+body.is-loaded {
+  opacity: 1;
 }
 
 img,
@@ -86,7 +95,7 @@ section {
 }
 
 .section-padding {
-  padding: 104px 0;
+  padding: 88px 0;
 }
 
 .surface-light {
@@ -156,6 +165,12 @@ section {
 .btn {
   border-radius: 999px;
   font-weight: 800;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: translateY(-2px);
 }
 
 .btn-primary {
@@ -181,6 +196,7 @@ section {
   background: rgba(7, 19, 38, 0.86);
   box-shadow: 0 8px 26px rgba(7, 19, 38, 0.1);
   backdrop-filter: blur(16px);
+  animation: navFadeIn 0.7s ease both;
 }
 
 .navbar-brand {
@@ -308,7 +324,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
 .hero-actions .btn {
@@ -328,6 +344,25 @@ section {
   border-color: transparent;
   background: var(--navy-950);
   color: var(--white);
+}
+
+.hero-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-specialties span {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 14px;
+  border: 1px solid rgba(110, 76, 247, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--navy-900);
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(11, 24, 52, 0.08);
 }
 
 .hero-stats {
@@ -743,7 +778,7 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 34px;
+  margin-bottom: 38px;
 }
 
 .filter-btn {
@@ -773,6 +808,8 @@ section {
   flex-direction: column;
   overflow: hidden;
   padding: 0;
+  border-color: rgba(110, 76, 247, 0.12);
+  background: rgba(255, 255, 255, 0.84);
 }
 
 .portfolio-preview {
@@ -785,7 +822,7 @@ section {
 
 .portfolio-image-wrap {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 11;
   display: block;
   overflow: hidden;
   color: var(--white);
@@ -799,7 +836,7 @@ section {
 }
 
 .portfolio-card:hover .portfolio-image-wrap img {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .image-placeholder {
@@ -845,18 +882,20 @@ section {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 12px;
   padding: 24px;
 }
 
 .portfolio-body h3 {
-  margin: 14px 0 10px;
+  margin: 0;
   color: var(--navy-950);
-  font-size: 1.28rem;
+  font-size: 1.22rem;
   font-weight: 800;
+  line-height: 1.25;
 }
 
 .portfolio-body p {
-  margin-bottom: 14px;
+  margin-bottom: 0;
 }
 
 .software-used {
@@ -871,6 +910,7 @@ section {
 .portfolio-body .btn {
   align-self: flex-start;
   margin-top: auto;
+  padding: 0.58rem 1rem;
 }
 
 /* Testimonials, education, contact */
@@ -1047,6 +1087,18 @@ section {
 .reveal-delay-2 { transition-delay: 0.16s; }
 .reveal-delay-3 { transition-delay: 0.24s; }
 
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1102,7 +1154,7 @@ section {
   }
 
   .section-padding {
-    padding: 92px 0;
+    padding: 80px 0;
   }
 
   .hero-section {
@@ -1138,7 +1190,7 @@ section {
   }
 
   .section-padding {
-    padding: 84px 0;
+    padding: 72px 0;
   }
 
   .section-heading {
@@ -1207,7 +1259,7 @@ section {
   }
 
   .section-padding {
-    padding: 74px 0;
+    padding: 64px 0;
   }
 
   .section-heading {
@@ -1261,7 +1313,7 @@ section {
   }
 
   .portfolio-image-wrap {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
   }
 
   .timeline::before {
@@ -1311,7 +1363,7 @@ section {
   }
 
   .section-padding {
-    padding: 62px 0;
+    padding: 56px 0;
   }
 
   .eyebrow {
@@ -1338,6 +1390,10 @@ section {
   .hero-card {
     padding: 22px;
     text-align: left;
+  }
+
+  .hero-specialties {
+    justify-content: center;
   }
 
   .identity-panel {
@@ -1442,7 +1498,7 @@ section {
   }
 
   .section-padding {
-    padding: 54px 0;
+    padding: 48px 0;
   }
 
   .section-heading h2 {

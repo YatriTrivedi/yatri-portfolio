@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.remove("is-loading");
+  document.body.classList.add("is-loaded");
+
   const yearElement = document.getElementById("currentYear");
   const revealElements = document.querySelectorAll(".reveal");
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -20,6 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
+  }
+
+  revealElements.forEach((element, index) => {
+    element.setAttribute("data-aos", "fade-up");
+    element.setAttribute("data-aos-delay", String(Math.min(index % 4, 3) * 70));
+  });
+
+  if (window.AOS && !prefersReducedMotion) {
+    AOS.init({
+      duration: 750,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 80
+    });
   }
 
   if (prefersReducedMotion || !("IntersectionObserver" in window)) {
@@ -86,6 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const shouldShow = filter === "all" || category === filter;
         card.classList.toggle("hidden", !shouldShow);
       });
+
+      if (window.AOS) {
+        AOS.refreshHard();
+      }
     });
   });
 
