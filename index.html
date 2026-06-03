@@ -23,12 +23,11 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
-  <!-- <link rel="stylesheet" href="assets/css/style.css">  -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="page-shell">
-    <nav class="navbar navbar-expand-lg fixed-top main-navbar">
+    <nav class="navbar navbar-expand-xl fixed-top main-navbar" data-bs-theme="dark">
       <div class="container">
         <a class="navbar-brand" href="#home">Yatri Trivedi</a>
         <button
@@ -43,7 +42,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="portfolioNav">
-          <ul class="navbar-nav ms-auto align-items-lg-center">
+          <ul class="navbar-nav ms-auto align-items-xl-center">
             <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
@@ -52,7 +51,7 @@
             <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
             <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
             <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-            <li class="nav-item ms-lg-3"><a class="btn btn-primary nav-cta" href="#contact">Let's Talk</a></li>
+            <li class="nav-item ms-xl-3"><a class="btn btn-primary nav-cta" href="#contact">Let's Talk</a></li>
           </ul>
         </div>
       </div>
@@ -61,9 +60,9 @@
     <main>
       <section id="home" class="hero-section">
         <div class="container position-relative">
-          <div class="row align-items-center gy-5">
-            <div class="col-lg-7">
-              <div class="reveal">
+          <div class="row hero-row align-items-center gy-5">
+            <div class="col-xl-7 col-lg-6">
+              <div class="hero-content reveal">
                 <span class="eyebrow">Premium Graphic Design Portfolio</span>
                 <h1 class="hero-title">Yatri Trivedi</h1>
                 <p class="hero-subtitle">Graphic Designer | UI/UX Designer | Frontend Developer</p>
@@ -76,13 +75,13 @@
                   <a href="#contact" class="btn btn-outline-dark btn-lg">Contact Me</a>
                 </div>
                 <div class="hero-stats row g-3">
-                  <div class="col-6 col-md-4">
+                  <div class="col-12 col-sm-6 col-md-4">
                     <div class="info-chip">
                       <strong>2+</strong>
                       <span>Years Corporate Experience</span>
                     </div>
                   </div>
-                  <div class="col-6 col-md-4">
+                  <div class="col-12 col-sm-6 col-md-4">
                     <div class="info-chip">
                       <strong>7+</strong>
                       <span>Portfolio Categories</span>
@@ -97,7 +96,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-xl-5 col-lg-6">
               <div class="hero-card reveal reveal-delay-1">
                 <div class="designer-badge">
                   <i class="fa-solid fa-pen-ruler"></i>
@@ -363,36 +362,27 @@
         <div class="container">
           <div class="section-heading text-center reveal">
             <span class="eyebrow">Portfolio Gallery</span>
-            <h2>Creative projects ready for your real work samples</h2>
+            <h2>Selected design work across brand, social, web, and UI projects</h2>
             <p>
-              Replace each placeholder image and project detail with your final social media,
-              logo, branding, website, mobile app, and UI/UX work.
+              A curated look at visual design, brand assets, responsive interfaces, and UI/UX
+              layouts created with a clean, professional presentation style.
             </p>
           </div>
 
           <div class="filter-toolbar reveal">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="social">Social Media</button>
-            <button class="filter-btn" data-filter="logo">Logos</button>
-            <button class="filter-btn" data-filter="business">Business Cards</button>
-            <button class="filter-btn" data-filter="banner">Banners</button>
-            <button class="filter-btn" data-filter="web">Websites</button>
-            <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
-            <button class="filter-btn" data-filter="ux">UI/UX Case Studies</button>
+            <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" type="button" data-filter="social" aria-pressed="false">Social Media</button>
+            <button class="filter-btn" type="button" data-filter="logo" aria-pressed="false">Logos</button>
+            <button class="filter-btn" type="button" data-filter="business" aria-pressed="false">Business Cards</button>
+            <button class="filter-btn" type="button" data-filter="banner" aria-pressed="false">Banners</button>
+            <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Websites</button>
+            <button class="filter-btn" type="button" data-filter="mobile" aria-pressed="false">Mobile Apps</button>
+            <button class="filter-btn" type="button" data-filter="ux" aria-pressed="false">UI/UX Case Studies</button>
           </div>
 
-          <!--
-            Portfolio edit guide:
-            1. Put your real images in the images folder with these names:
-               project1.jpg, project2.jpg, project3.jpg ... project12.jpg.
-            2. To change project text, edit the project title, category label,
-               description, software text, and matching data-* attributes below.
-            3. To add a new card, copy one .portfolio-item block and update its
-               image path, category, title, description, and software.
-          -->
           <div class="row g-4 portfolio-grid">
             <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="social">
-              <article class="glass-card portfolio-card" data-image="images/project1.jpg">
+              <article class="glass-card portfolio-card" data-image="images/Post1.png">
                 <button
                   class="portfolio-preview"
                   data-title="Social Media Campaign Post"
@@ -402,8 +392,8 @@
                   data-image="images/Post1.png"
                 >
                   <span class="portfolio-image-wrap gradient-social">
-                    <img src="images/Post1.png" alt="Social Media Campaign Post">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project1.jpg</span>
+                    <img src="images/Post1.png" alt="Social Media Campaign Post" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -426,7 +416,7 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="logo">
-              <article class="glass-card portfolio-card" data-image="images/project2.jpg">
+              <article class="glass-card portfolio-card" data-image="images/Logos.png">
                 <button
                   class="portfolio-preview"
                   data-title="Modern Logo Concept"
@@ -436,8 +426,8 @@
                   data-image="images/Logos.png"
                 >
                   <span class="portfolio-image-wrap gradient-logo">
-                    <img src="images/Logos.png" alt="Modern Logo Concept">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project2.jpg</span>
+                    <img src="images/Logos.png" alt="Modern Logo Concept" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -460,18 +450,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-2" data-category="business">
-              <article class="glass-card portfolio-card" data-image="images/project3.jpg">
+              <article class="glass-card portfolio-card" data-image="images/BusinessCrad.png">
                 <button
                   class="portfolio-preview"
                   data-title="Professional Business Card"
                   data-category="Business Card Design"
                   data-description="A print-ready business card layout with balanced typography, spacing, and brand presentation."
                   data-software="Canva, Adobe Photoshop"
-                  data-image="images/project3.jpg"
+                  data-image="images/BusinessCrad.png"
                 >
                   <span class="portfolio-image-wrap gradient-business">
-                    <img src="images/BusinessCrad.png" alt="Professional Business Card">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project3.jpg</span>
+                    <img src="images/BusinessCrad.png" alt="Professional Business Card" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -494,18 +484,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="banner">
-              <article class="glass-card portfolio-card" data-image="images/project4.jpg">
+              <article class="glass-card portfolio-card" data-image="images/Webbanner1.png">
                 <button
                   class="portfolio-preview"
                   data-title="Promotional Banner Design"
                   data-category="Banner Design"
                   data-description="A bold promotional banner designed for campaign visibility, readable messaging, and quick impact."
                   data-software="Adobe Photoshop, Canva"
-                  data-image="images/project4.jpg"
+                  data-image="images/Webbanner1.png"
                 >
                   <span class="portfolio-image-wrap gradient-banner">
-                    <img src="images/Webbanner1.png" alt="Promotional Banner Design">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project4.jpg</span>
+                    <img src="images/Webbanner1.png" alt="Promotional Banner Design" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -528,18 +518,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="web">
-              <article class="glass-card portfolio-card" data-image="images/project5.jpg">
+              <article class="glass-card portfolio-card" data-image="images/Web Layout_Edution.jpg">
                 <button
                   class="portfolio-preview"
                   data-title="Website Homepage Design"
                   data-category="Website Design"
                   data-description="A responsive website homepage concept with clear layout, visual hierarchy, and modern styling."
                   data-software="Figma, HTML, CSS, Bootstrap"
-                  data-image="images/project5.jpg"
+                  data-image="images/Web Layout_Edution.jpg"
                 >
                   <span class="portfolio-image-wrap gradient-web">
-                    <img src="images/Web Layout_Edution.jpg" alt="Website Homepage Design">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project5.jpg</span>
+                    <img src="images/Web Layout_Edution.jpg" alt="Website Homepage Design" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -572,8 +562,8 @@
                   data-image="images/CRUZAA/LOGIN.png"
                 >
                   <span class="portfolio-image-wrap gradient-mobile">
-                    <img src="images/CRUZAA/LOGIN.png" alt="Mobile App Screen Design">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project6.jpg</span>
+                    <img src="images/CRUZAA/LOGIN.png" alt="Mobile App Screen Design" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -587,7 +577,7 @@
                     data-category="Mobile App Design"
                     data-description="A clean mobile app screen focused on usability, readable content, and smooth user flow."
                     data-software="Figma, UI/UX Design"
-                    data-image="images/project6.jpg"
+                    data-image="images/CRUZAA/LOGIN.png"
                   >
                     View Project
                   </button>
@@ -596,18 +586,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="ux">
-              <article class="glass-card portfolio-card" data-image="images/project7.jpg">
+              <article class="glass-card portfolio-card" data-image="images/Case Study_Course Master.png">
                 <button
                   class="portfolio-preview"
                   data-title="UI/UX Case Study Layout"
                   data-category="UI/UX Case Studies"
                   data-description="A case study layout presenting research, wireframes, design decisions, and final UI screens."
                   data-software="Figma, UI/UX Design"
-                  data-image="images/project7.jpg"
+                  data-image="images/Case Study_Course Master.png"
                 >
                   <span class="portfolio-image-wrap gradient-branding">
-                    <img src="images/Case Study_Course Master.png" alt="UI/UX Case Study Layout">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project7.jpg</span>
+                    <img src="images/Case Study_Course Master.png" alt="UI/UX Case Study Layout" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -630,18 +620,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="social">
-              <article class="glass-card portfolio-card" data-image="images/project8.jpg">
+              <article class="glass-card portfolio-card" data-image="images/Post2.png">
                 <button
                   class="portfolio-preview"
                   data-title="Festival Social Media Creative"
                   data-category="Social Media Posts"
                   data-description="A festive social post layout designed with bright visuals, clear copy placement, and brand consistency."
                   data-software="Canva, Adobe Photoshop"
-                  data-image="images/project8.jpg"
+                  data-image="images/Post2.png"
                 >
                   <span class="portfolio-image-wrap gradient-social">
-                    <img src="images/Post2.png" alt="Festival Social Media Creative">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project8.jpg</span>
+                    <img src="images/Post2.png" alt="Festival Social Media Creative" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -664,18 +654,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-2" data-category="logo">
-              <article class="glass-card portfolio-card" data-image="images/project9.jpg">
+              <article class="glass-card portfolio-card" data-image="images/Logo2.png">
                 <button
                   class="portfolio-preview"
                   data-title="Brand Identity Logo"
                   data-category="Logo Design"
                   data-description="A versatile logo direction prepared for digital, print, and social media brand touchpoints."
                   data-software="Adobe Photoshop, Figma"
-                  data-image="images/project9.jpg"
+                  data-image="images/Logo2.png"
                 >
                   <span class="portfolio-image-wrap gradient-logo">
-                    <img src="images/Logo2.png" alt="Brand Identity Logo">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project9.jpg</span>
+                    <img src="images/Logo2.png" alt="Brand Identity Logo" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -698,18 +688,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal" data-category="business">
-              <article class="glass-card portfolio-card" data-image="images/project10.jpg">
+              <article class="glass-card portfolio-card" data-image="images/2.png">
                 <button
                   class="portfolio-preview"
                   data-title="Minimal Business Card"
                   data-category="Business Card Design"
                   data-description="A minimal business card concept with clean information hierarchy and professional spacing."
                   data-software="Canva, Adobe Photoshop"
-                  data-image="images/project10.jpg"
+                  data-image="images/2.png"
                 >
                   <span class="portfolio-image-wrap gradient-business">
-                    <img src="images/2.png" alt="Minimal Business Card">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project10.jpg</span>
+                    <img src="images/2.png" alt="Minimal Business Card" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -732,18 +722,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-1" data-category="banner">
-              <article class="glass-card portfolio-card" data-image="images/project11.jpg">
+              <article class="glass-card portfolio-card" data-image="images/WEBBANNER2.jpg">
                 <button
                   class="portfolio-preview"
                   data-title="Event Banner Creative"
                   data-category="Banner Design"
                   data-description="An event banner design built for strong readability, balanced visuals, and professional presentation."
                   data-software="Adobe Photoshop, Canva"
-                  data-image="images/project11.jpg"
+                  data-image="images/WEBBANNER2.jpg"
                 >
                   <span class="portfolio-image-wrap gradient-banner">
-                    <img src="images/WEBBANNER2.jpg" alt="Event Banner Creative">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project11.jpg</span>
+                    <img src="images/WEBBANNER2.jpg" alt="Event Banner Creative" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -766,18 +756,18 @@
             </div>
 
             <div class="col-md-6 col-xl-4 portfolio-item reveal reveal-delay-2" data-category="web">
-              <article class="glass-card portfolio-card" data-image="images/project12.jpg">
+              <article class="glass-card portfolio-card" data-image="images/Login_Page.png">
                 <button
                   class="portfolio-preview"
                   data-title="Responsive Website Section"
                   data-category="Website Design"
                   data-description="A responsive web section designed with Bootstrap, structured spacing, and clean frontend execution."
                   data-software="HTML, CSS, Bootstrap, Angular"
-                  data-image="images/project12.jpg"
+                  data-image="images/Login_Page.png"
                 >
                   <span class="portfolio-image-wrap gradient-web">
-                    <img src="images/Login_Page.png" alt="Responsive Website Section">
-                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Replace images/project12.jpg</span>
+                    <img src="images/Login_Page.png" alt="Responsive Website Section" loading="lazy" decoding="async">
+                    <span class="image-placeholder"><i class="fa-solid fa-image"></i> Project image preview</span>
                   </span>
                 </button>
                 <div class="portfolio-body">
@@ -888,13 +878,52 @@
           <div class="row g-4">
             <div class="col-lg-5 reveal">
               <div class="glass-card contact-info-card h-100">
-                <h3>Contact Details</h3>
+                <span class="contact-kicker">Contact Details</span>
+                <h3>Ready to discuss your next design project?</h3>
+                <p class="contact-intro">
+                  Reach out for graphic design, UI/UX design, frontend collaboration, freelance work,
+                  or job opportunities.
+                </p>
                 <ul class="contact-list">
-                  <li><i class="fa-solid fa-user"></i><span>Yatri Trivedi</span></li>
-                  <li><i class="fa-solid fa-briefcase"></i><span>Graphic Designer | UI/UX Designer | Frontend Developer</span></li>
-                  <li><i class="fa-solid fa-location-dot"></i><span>Anand, Gujarat, India</span></li>
-                  <li><i class="fa-solid fa-graduation-cap"></i><span>BCA and MCA from SPU University</span></li>
+                  <li>
+                    <i class="fa-solid fa-user"></i>
+                    <span><strong>Name</strong>Yatri Trivedi</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span><strong>Role</strong>Graphic Designer | UI/UX Designer | Frontend Developer</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span><strong>Location</strong>Anand, Gujarat, India</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-phone"></i>
+                    <span><strong>Phone</strong><a href="tel:+919664534737">+91 96645 34737</a></span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span><strong>Email</strong><a href="mailto:yatri262@gmail.com">yatri262@gmail.com</a></span>
+                  </li>
                 </ul>
+                <div class="contact-socials" aria-label="Social profile links">
+                  <a href="https://www.linkedin.com/in/yatri-trivedi-a59838234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <!-- <a href="https://www.instagram.com/your-instagram-profile" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a> -->
+                  <!-- <a href="https://www.behance.net/your-behance-profile" target="_blank" rel="noopener noreferrer" aria-label="Behance profile">
+                    <i class="fa-brands fa-behance"></i>
+                  </a> -->
+                  <a href="https://github.com/YatriTrivedi" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+                <a class="btn btn-primary resume-btn" href="assets/Yatri_Trivedi_Resume.pdf" download>
+                  <i class="fa-solid fa-file-arrow-down"></i>
+                  Download Resume
+                </a>
               </div>
             </div>
             <div class="col-lg-7 reveal reveal-delay-1">
@@ -938,7 +967,7 @@
             <h3>Yatri Trivedi</h3>
             <p>Graphic Designer | UI/UX Designer | Frontend Developer</p>
           </div>
-          <p class="mb-0">&copy; 2026 Yatri Trivedi | Graphic Designer | UI/UX Designer</p>
+          <p class="mb-0">&copy; <span id="currentYear">2026</span> Yatri Trivedi | Graphic Designer | UI/UX Designer</p>
         </div>
       </div>
     </footer>
@@ -963,6 +992,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="main.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
