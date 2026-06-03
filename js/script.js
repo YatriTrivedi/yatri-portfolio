@@ -20,9 +20,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbarCollapse = document.getElementById("portfolioNav");
   const navLinks = document.querySelectorAll(".navbar-nav .nav-link, .navbar-nav .nav-cta");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const counters = document.querySelectorAll(".counter");
+  const skillBars = document.querySelectorAll(".progress-bar");
+  const sections = document.querySelectorAll("main section[id]");
+  const buttons = document.querySelectorAll(".btn");
+  const typedTitle = document.querySelector(".typed-title");
+  const navbar = document.querySelector(".main-navbar");
+  const heroSection = document.querySelector(".hero-section");
+  let lastScrollY = window.scrollY;
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
+  }
+
+  if (window.Typed && typedTitle && !prefersReducedMotion) {
+    new Typed(".typed-title", {
+      strings: [
+        "Graphic Designer",
+        "UI/UX Designer",
+        "Frontend Developer"
+      ],
+      typeSpeed: 58,
+      backSpeed: 34,
+      backDelay: 1200,
+      loop: true,
+      smartBackspace: true
+    });
   }
 
   revealElements.forEach((element, index) => {
@@ -64,6 +87,124 @@ document.addEventListener("DOMContentLoaded", () => {
       image.closest(".portfolio-image-wrap")?.classList.add("image-missing");
     });
   });
+
+  function animateCounter(counter) {
+    const target = Number(counter.dataset.count || 0);
+    const duration = 1100;
+    const startTime = performance.now();
+
+    function update(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      counter.textContent = Math.round(target * eased);
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  if ("IntersectionObserver" in window && !prefersReducedMotion) {
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    counters.forEach((counter) => counterObserver.observe(counter));
+
+    const skillObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("skill-animated");
+            skillObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    skillBars.forEach((bar) => skillObserver.observe(bar));
+  } else {
+    counters.forEach((counter) => {
+      counter.textContent = counter.dataset.count || "0";
+    });
+    skillBars.forEach((bar) => bar.classList.add("skill-animated"));
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const ripple = document.createElement("span");
+      const rect = button.getBoundingClientRect();
+
+      ripple.className = "btn-ripple";
+      ripple.style.left = `${event.clientX - rect.left}px`;
+      ripple.style.top = `${event.clientY - rect.top}px`;
+      button.appendChild(ripple);
+
+      window.setTimeout(() => ripple.remove(), 650);
+    });
+  });
+
+  function updateNavbar() {
+    const currentScrollY = window.scrollY;
+
+    if (navbar) {
+      navbar.classList.toggle("nav-scrolled", currentScrollY > 24);
+      navbar.classList.toggle("nav-hidden", currentScrollY > lastScrollY && currentScrollY > 180);
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  function updateActiveLink() {
+    let activeId = "home";
+    const offset = 140;
+
+    sections.forEach((section) => {
+      if (window.scrollY >= section.offsetTop - offset) {
+        activeId = section.id;
+      }
+    });
+
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      link.classList.toggle("active", href === `#${activeId}`);
+    });
+  }
+
+  updateNavbar();
+  updateActiveLink();
+
+  window.addEventListener("scroll", () => {
+    updateNavbar();
+    updateActiveLink();
+  }, { passive: true });
+
+  if (heroSection && !prefersReducedMotion && window.matchMedia("(hover: hover)").matches) {
+    heroSection.addEventListener("mousemove", (event) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
+      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 18;
+
+      heroSection.style.setProperty("--parallax-x", `${x}px`);
+      heroSection.style.setProperty("--parallax-y", `${y}px`);
+    });
+
+    heroSection.addEventListener("mouseleave", () => {
+      heroSection.style.setProperty("--parallax-x", "0px");
+      heroSection.style.setProperty("--parallax-y", "0px");
+    });
+  }
 
   if (navbarCollapse && window.bootstrap) {
     const collapseInstance = bootstrap.Collapse.getOrCreateInstance(navbarCollapse, {
@@ -166,7 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+    if (event.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) {
       closeLightbox();
     }
   });
