@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".main-navbar");
   const heroSection = document.querySelector(".hero-section");
   let lastScrollY = window.scrollY;
+  let filterTimer;
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
@@ -49,7 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   revealElements.forEach((element, index) => {
-    element.setAttribute("data-aos", "fade-up");
+    let animation = "fade-up";
+
+    if (element.classList.contains("reveal-left")) {
+      animation = "fade-right";
+    } else if (element.classList.contains("reveal-right")) {
+      animation = "fade-left";
+    } else if (element.classList.contains("reveal-zoom")) {
+      animation = "zoom-in";
+    }
+
+    element.setAttribute("data-aos", animation);
     element.setAttribute("data-aos-delay", String(Math.min(index % 4, 3) * 70));
   });
 
@@ -232,6 +243,8 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const filter = button.dataset.filter;
 
+      window.clearTimeout(filterTimer);
+
       filterButtons.forEach((item) => {
         item.classList.remove("active");
         item.setAttribute("aria-pressed", "false");
@@ -240,14 +253,25 @@ document.addEventListener("DOMContentLoaded", () => {
       button.setAttribute("aria-pressed", "true");
 
       portfolioItems.forEach((card) => {
-        const category = card.dataset.category;
-        const shouldShow = filter === "all" || category === filter;
-        card.classList.toggle("hidden", !shouldShow);
+        card.classList.add("is-hiding");
       });
 
-      if (window.AOS) {
-        AOS.refreshHard();
-      }
+      filterTimer = window.setTimeout(() => {
+        portfolioItems.forEach((card) => {
+          const category = card.dataset.category;
+          const shouldShow = filter === "all" || category === filter;
+
+          card.classList.toggle("hidden", !shouldShow);
+
+          if (shouldShow) {
+            requestAnimationFrame(() => card.classList.remove("is-hiding"));
+          }
+        });
+
+        if (window.AOS) {
+          AOS.refreshHard();
+        }
+      }, 180);
     });
   });
 
