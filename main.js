@@ -12,12 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxDescription = document.getElementById("lightboxDescription");
   const lightboxSoftware = document.getElementById("lightboxSoftware");
   const lightboxVisual = document.getElementById("lightboxVisual");
+  const lightboxDialog = lightbox?.querySelector(".lightbox-dialog");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxPlaceholder = document.getElementById("lightboxPlaceholder");
   const lightboxTriggers = document.querySelectorAll(".lightbox-trigger, .portfolio-preview");
   const lightboxCloseTargets = document.querySelectorAll("[data-close-lightbox]");
   const contactForm = document.getElementById("contactForm");
   const formMessage = document.getElementById("formMessage");
   const portfolioImages = document.querySelectorAll(".portfolio-image-wrap img");
   const navbarCollapse = document.getElementById("portfolioNav");
+  const navbarToggler = document.querySelector(".navbar-toggler");
+  const mobileCloseButton = document.getElementById("mobileClose");
+  const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
   const navLinks = document.querySelectorAll(".navbar-nav .nav-link, .navbar-nav .nav-cta");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const counters = document.querySelectorAll(".counter");
@@ -29,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroSection = document.querySelector(".hero-section");
   let lastScrollY = window.scrollY;
   let filterTimer;
+  let lastFocusedElement = null;
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
@@ -222,12 +229,51 @@ document.addEventListener("DOMContentLoaded", () => {
       toggle: false
     });
 
+    const closeMobileMenu = () => {
+      if (window.innerWidth < 1200 && navbarCollapse.classList.contains("show")) {
+        collapseInstance.hide();
+      }
+    };
+
+    mobileCloseButton?.addEventListener("click", closeMobileMenu);
+    mobileMenuOverlay?.addEventListener("click", closeMobileMenu);
+
     navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (window.innerWidth < 1200 && navbarCollapse.classList.contains("show")) {
-          collapseInstance.hide();
-        }
-      });
+      link.addEventListener("click", closeMobileMenu);
+    });
+
+    navbarCollapse.addEventListener("show.bs.collapse", () => {
+      document.body.classList.add("mobile-menu-open");
+    });
+
+    navbarCollapse.addEventListener("shown.bs.collapse", () => {
+      navbarCollapse.classList.remove("is-closing");
+      mobileCloseButton?.focus();
+    });
+
+    navbarCollapse.addEventListener("hide.bs.collapse", () => {
+      navbarCollapse.classList.add("is-closing");
+      navbar?.classList.add("menu-is-closing");
+    });
+
+    navbarCollapse.addEventListener("hidden.bs.collapse", () => {
+      navbarCollapse.classList.remove("is-closing");
+      navbar?.classList.remove("menu-is-closing");
+      document.body.classList.remove("mobile-menu-open");
+      navbarToggler?.focus();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1200) {
+        document.body.classList.remove("mobile-menu-open");
+        collapseInstance.hide();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navbarCollapse.classList.contains("show")) {
+        closeMobileMenu();
+      }
     });
   }
 
@@ -276,7 +322,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function openLightbox(trigger) {
-    if (!lightbox || !lightboxCategory || !lightboxTitle || !lightboxDescription || !lightboxSoftware || !lightboxVisual) {
+    if (
+      !lightbox ||
+      !lightboxCategory ||
+      !lightboxTitle ||
+      !lightboxDescription ||
+      !lightboxSoftware ||
+      !lightboxVisual ||
+      !lightboxImage ||
+      !lightboxPlaceholder
+    ) {
       return;
     }
 
@@ -290,24 +345,31 @@ document.addEventListener("DOMContentLoaded", () => {
     lightboxTitle.textContent = title;
     lightboxDescription.textContent = description;
     lightboxSoftware.innerHTML = `<strong>Software:</strong> ${software}`;
-    lightboxVisual.classList.remove("image-missing");
+    lightboxVisual.className = "lightbox-visual";
+    lightboxVisual.classList.add(`preview-${getPreviewType(category)}`);
+    lightboxVisual.scrollTop = 0;
+    lightboxImage.alt = title;
+    lightboxPlaceholder.innerHTML = '<i class="fa-solid fa-image"></i> Project image unavailable';
+    lastFocusedElement = document.activeElement;
 
     if (imagePath) {
-      lightboxVisual.innerHTML = `<img src="${escapeAttribute(imagePath)}" alt="${escapeAttribute(title)}">`;
-      const lightboxImage = lightboxVisual.querySelector("img");
-
-      lightboxImage.addEventListener("error", () => {
+      lightboxImage.onload = () => {
+        lightboxVisual.classList.remove("image-missing");
+      };
+      lightboxImage.onerror = () => {
         lightboxVisual.classList.add("image-missing");
-        lightboxVisual.innerHTML = `<span><i class="fa-solid fa-image"></i>Replace ${escapeAttribute(imagePath)}</span>`;
-      });
+        lightboxPlaceholder.innerHTML = `<i class="fa-solid fa-image"></i> Unable to load ${escapeAttribute(imagePath)}`;
+      };
+      lightboxImage.src = imagePath;
     } else {
       lightboxVisual.classList.add("image-missing");
-      lightboxVisual.innerHTML = '<span><i class="fa-solid fa-image"></i>Add project image</span>';
+      lightboxImage.removeAttribute("src");
     }
 
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    window.requestAnimationFrame(() => lightboxDialog?.focus());
   }
 
   function closeLightbox() {
@@ -318,6 +380,18 @@ document.addEventListener("DOMContentLoaded", () => {
     lightbox.classList.remove("is-open");
     lightbox.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    lastFocusedElement?.focus();
+  }
+
+  function getPreviewType(category) {
+    const normalizedCategory = category.toLowerCase();
+
+    if (normalizedCategory.includes("website")) return "web";
+    if (normalizedCategory.includes("mobile")) return "mobile";
+    if (normalizedCategory.includes("business")) return "business";
+    if (normalizedCategory.includes("banner")) return "banner";
+    if (normalizedCategory.includes("logo")) return "logo";
+    return "social";
   }
 
   if (lightbox) {
@@ -333,6 +407,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) {
       closeLightbox();
+    }
+
+    if (event.key === "Tab" && lightbox?.classList.contains("is-open")) {
+      const focusableElements = lightbox.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstFocusable) {
+        event.preventDefault();
+        lastFocusable?.focus();
+      } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+        event.preventDefault();
+        firstFocusable?.focus();
+      }
     }
   });
 
